@@ -1,0 +1,84 @@
+/* =========================
+   SKELETON CARD
+========================= */
+
+.skeleton-card{
+  background: var(--card-color);
+
+  border-radius: var(--radius);
+
+  overflow: hidden;
+
+  box-shadow: var(--shadow);
+}
+
+/* =========================
+   IMAGE
+========================= */
+
+.skeleton-image{
+  width: 100%;
+  height: 220px;
+
+  background: #e5e7eb;
+
+  animation: pulse 1.5s infinite;
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.skeleton-content{
+  padding: 16px;
+}
+
+/* =========================
+   TITLE
+========================= */
+
+.skeleton-title{
+  height: 18px;
+  width: 80%;
+
+  background: #e5e7eb;
+
+  border-radius: 6px;
+
+  margin-bottom: 14px;
+
+  animation: pulse 1.5s infinite;
+}
+
+/* =========================
+   PRICE
+========================= */
+
+.skeleton-price{
+  height: 16px;
+  width: 40%;
+
+  background: #e5e7eb;
+
+  border-radius: 6px;
+
+  animation: pulse 1.5s infinite;
+}
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes pulse{
+  0%{
+    opacity: 0.5;
+  }
+
+  50%{
+    opacity: 1;
+  }
+
+  100%{
+    opacity: 0.5;
+  }
+}
