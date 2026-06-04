@@ -1,62 +1,44 @@
+import { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
-import Loader from "./Loader";
-import SkeletonCard from "./SkeletonCard";
-import ErrorMessage from "./ErrorMessage";
-import EmptyState from "./EmptyState";
-import useFetch from "../hooks/useFetch";
 
-import "../styles/productList.css";
-
-const API_URL = "https://api.escuelajs.co/api/v1/products";
 
 function ProductList() {
-  const { data, loading, error, refetch } = useFetch(API_URL);
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  if (loading) {
-    return (
-      <section className="products-section">
-        <Loader />
-
-        <div className="products-grid">
-          {[...Array(6)].map((_, i) => (
-            <SkeletonCard key={i} />
-          ))}
-        </div>
-      </section>
-    );
-  }
-
-  if (error) {
-    return <ErrorMessage message={error} />;
-  }
-
-  if (!data || data.length === 0) {
-    return <EmptyState />;
-  }
+  useEffect(() => {
+    fetch("https://api.escuelajs.co/api/v1/products")
+      .then((res) => res.json())
+      .then((data) => {
+        setProducts(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setLoading(false);
+      });
+  }, []);
 
   return (
     <section className="products-section">
-      <div className="products-header">
-        <h2>Featured Products</h2>
+      <h2 className="products-heading">
+        Our Products
+      </h2>
 
-        <button
-          className="refresh-button"
-          onClick={refetch}
-        >
-          Refresh Products
-        </button>
-      </div>
-
-      <div className="products-grid">
-        {data.map((product) => (
-          <ProductCard
-            key={product.id}
-            image={product.images?.[0] || "https://via.placeholder.com/300"}
-            title={product.title}
-            price={product.price}
-          />
-        ))}
-      </div>
+      {loading ? (
+        <h3 className="loading-text">Loading...</h3>
+      ) : (
+        <div className="products-grid">
+          {products.map((item) => (
+            <ProductCard
+              key={item.id}
+              image={item.images[0]}
+              title={item.title}
+              price={item.price}
+            />
+          ))}
+        </div>
+      )}
     </section>
   );
 }

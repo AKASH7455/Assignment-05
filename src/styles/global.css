@@ -1,114 +1,31 @@
-/* =========================
-   GOOGLE FONT
-========================= */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
-/* =========================
-   CSS VARIABLES
-========================= */
-
-:root{
-  --primary-color: #5B74FF;
-  --secondary-color: #8EA2FF;
-
-  --background-color: #F5F7FF;
-  --card-color: #FFFFFF;
-
-  --text-color: #111827;
-
-  --success-color: #22C55E;
-  --error-color: #EF4444;
-
-  --shadow:
-    0 8px 25px rgba(0,0,0,0.08);
-
-  --radius: 18px;
-
-  --transition: 0.3s ease;
+:root {
+  --primary-color:rgb(29, 172, 229);
 }
 
-/* =========================
-   RESET
-========================= */
-
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-*::before,
-*::after{
-  box-sizing: border-box;
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
 }
 
-img{
+img {
   width: 100%;
   display: block;
 }
 
-button,
-input{
-  border: none;
-  outline: none;
-  font-family: inherit;
-}
-
-button{
+button {
   cursor: pointer;
 }
 
-/* =========================
-   BODY
-========================= */
-
-body{
-  font-family: "Inter", sans-serif;
-  background-color: var(--background-color);
-  color: var(--text-color);
-
-  min-height: 100vh;
-}
-
-/* =========================
-   APP CONTAINER
-========================= */
-
-.container{
-  width: 100%;
-  max-width: 1400px;
-
-  margin: 0 auto;
-  padding: 20px;
-}
-
-/* =========================
-   COMMON BUTTON
-========================= */
-
-.primary-btn{
-  background-color: var(--primary-color);
-  color: white;
-
-  padding: 12px 20px;
-
-  border-radius: 10px;
-
-  font-size: 15px;
-  font-weight: 600;
-
-  transition: var(--transition);
-}
-
-.primary-btn:hover{
-  transform: translateY(-2px);
-}
-
-/* =========================
-   SECTION SPACING
-========================= */
-
-section{
-  padding: 30px 0;
+.container {
+  width: 90%;
+  margin: auto;
 }

@@ -1,85 +1,73 @@
-/* =========================
-   PRODUCT CARD
-========================= */
-
-.product-card{
-  background: var(--card-color);
-
-  border-radius: var(--radius);
-
-  overflow: hidden;
-
-  box-shadow: var(--shadow);
-
-  transition: var(--transition);
-
-  cursor: pointer;
+.products-section {
+  padding: 5px;
+  background-color: #f5f5f5;
 }
 
-.product-card:hover{
-  transform: translateY(-8px);
+.products-heading {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
 }
 
-/* =========================
-   IMAGE WRAPPER
-========================= */
+.loading-text {
+  text-align: center;
+}
 
-.product-image-wrapper{
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.product-card {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 5px;
+}
+
+.product-image {
   width: 100%;
-  height: 250px;
-
-  overflow: hidden;
-}
-
-/* =========================
-   IMAGE
-========================= */
-
-.product-image{
-  width: 100%;
-  height: 100%;
-
+  height: 150px;
   object-fit: cover;
-
-  transition: 0.4s ease;
 }
 
-.product-card:hover .product-image{
-  transform: scale(1.08);
+.product-info {
+  padding: 10px;
 }
 
-/* =========================
-   CONTENT
-========================= */
-
-.product-content{
-  padding: 18px;
+.product-title {
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: #333;
 }
 
-/* =========================
-   TITLE
-========================= */
-
-.product-title{
+.product-price {
   font-size: 18px;
-  font-weight: 600;
-
-  color: var(--text-color);
-
-  margin-bottom: 12px;
-
-  line-height: 1.5;
-
-  min-height: 55px;
+  font-weight: bold;
+  color: green;
 }
 
-/* =========================
-   PRICE
-========================= */
+/* Tablet */
 
-.product-price{
-  font-size: 22px;
-  font-weight: 700;
+@media (min-width: 768px) {
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 
-  color: var(--primary-color);
+  .product-image {
+    height: 180px;
+  }
+}
+
+/* Desktop */
+
+@media (min-width: 1024px) {
+  .products-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .product-image {
+    height: 220px;
+  }
 }
