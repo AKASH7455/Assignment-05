@@ -1,23 +1,14 @@
-import { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
+import useFetch from "../hooks/useFetch";
 
+const PRODUCT_API = "https://api.escuelajs.co/api/v1/products";
 
 function ProductList() {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetch("https://api.escuelajs.co/api/v1/products")
-      .then((res) => res.json())
-      .then((data) => {
-        setProducts(data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.log(err);
-        setLoading(false);
-      });
-  }, []);
+  const {
+    data: products,
+    loading,
+    error,
+  } = useFetch(PRODUCT_API);
 
   return (
     <section className="products-section">
@@ -27,12 +18,14 @@ function ProductList() {
 
       {loading ? (
         <h3 className="loading-text">Loading...</h3>
+      ) : error ? (
+        <h3 className="loading-text">{error}</h3>
       ) : (
         <div className="products-grid">
           {products.map((item) => (
             <ProductCard
               key={item.id}
-              image={item.images[0]}
+              image={item.images?.[0]}
               title={item.title}
               price={item.price}
             />

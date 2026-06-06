@@ -14,9 +14,7 @@
 .hero-title{
   font-size: 40px;
   font-weight: 700;
-
-  color: var(--text-color);
-
+  color: #333;
   margin-bottom: 12px;
 }
 
@@ -26,11 +24,8 @@
 
 .hero-description{
   font-size: 17px;
-
   color: #6b7280;
-
   max-width: 500px;
-
   margin: 0 auto;
   line-height: 1.6;
 }

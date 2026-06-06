@@ -3,10 +3,9 @@
 ========================= */
 
 .navbar{
-  background: var(--primary-color);
+  background: rgb(29, 172, 229);
   padding: 18px 0;
-
-  box-shadow: var(--shadow);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
 }
 
 .navbar-container{
@@ -47,16 +46,17 @@
 
 .refresh-btn{
   background: white;
-  color: var(--primary-color);
+  color: rgb(29, 172, 229);
 
   padding: 10px 18px;
 
+  border: none;
   border-radius: 10px;
 
   font-size: 14px;
   font-weight: 600;
 
-  transition: var(--transition);
+  transition: 0.2s ease;
 }
 
 .refresh-btn:hover{
